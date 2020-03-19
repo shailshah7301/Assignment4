@@ -1,0 +1,88 @@
+<html> 
+<head>
+<title>Assignment 4</title>
+<script>
+ 
+        function display() {
+        if(validate_form()){
+            DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=300,height=200')
+            message = "<ul><li><b>Name: </b>" + document.getElementById("a").value;
+            message += "<li><b>Gender: </b>" + displayRadioValue();
+            message += "<li><b>Country: </b>" + document.getElementById("b").value;
+            message += "<li><b>Email: </b>" + document.getElementById("c").value;
+            message += "<li><b>Phone Number: </b>" + document.getElementById("d").value;
+            DispWin.document.write(message);
+            }
+        }
+        function validate_form() {
+            var phoneno = /^\d{10}$/;
+
+            if(!(document.getElementById("d").value.match(phoneno))){
+                alert("Incorrect mobile no.");
+                return false;
+            }
+
+            if (document.getElementById("a").value == "") {
+                alert("Enter your name");
+                return false;
+            }
+
+            if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(document.getElementById("c").value)) {
+                alert("Email address is invalid!")
+                return false
+            }
+            alert("Your response is Submitted sucessfully");
+            return true;
+        }
+        function displayRadioValue() { 
+            var ele = document.getElementsByName('gn'); 
+                if(ele[0].checked) 
+                        return "Male"; 
+                else
+                        return "Female";
+        } 
+      function blurFunction() 
+       { 
+    	document.getElementById("a").style.background = "skyblue";
+       }
+        
+</script>
+<style type="text/css">
+*{
+    font-family:sans-serif;
+ }
+ body{
+  background-image :url('assignment4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+</head>
+<body>
+<div style="margin-top:10%;margin-left:70%;background-color:#dddddd;width:425;height:350">
+    <form  action="" method="post" >
+    <fieldset>
+    <legend><font style="color:rgb(184, 198, 219);font-size: 30px;">Registration Form</font></legend><br><br>
+       <font style="color:white;margin-left:10px">Name<span style="color:red">*</span> :</font> <input type="text" id="a" name="fname" style="
+       width:200px;height:20px;margin-left:180px;margin-top:-20px" required onblur="blurFunction()" onblur="myFunction()"><br><br>
+       <font style="color:white;margin-left:10px">Gender :</font><font style="color:white;margin-left:110px;margin-top:-20px">Male </font><input type="radio" name="gn" id="myInput2">
+        <font style="color:white;margin-left:10px"> Female </font><input type="radio" name="gn" id="myInput2"> <br><br>
+        <font style="color:white;margin-left:10px">Country :</font> <select style="width:200px;height:20px;margin-left:180px;margin-top:-20px" required id="b">
+        <option value="India" >India</option>
+       
+        <option value="AUSTRALIA">Australia</option>
+      	 <option value="RUSSIA">Russia</option>
+        </select><br><br>
+        <font style="color:white;margin-left:10px">Email<span style="color:red">*</span> :</font> <input type="email" name="email" style="width:200px;
+        height:19px;margin-left:179px;margin-top:-20px" id="c"><br><br>
+        <font style="color:white;margin-left:10px">Password<span style="color:red">*</span> :</font> <input type="password" pattern="[A-Za-Z1-9]{8}"name="pw" style="width:200px;height:20px;margin-left:180px;margin-top:-20px" required id="pw"><br><br>
+        <font style="color:white;margin-left:10px">Phone No<span style="color:red">*</span> :</font> <input type="tel" maxlength="10" name="ph" style="width:200px;height:20px;margin-left:180px;margin-top:-20px" required id="d"><br><br><br>
+        <button style="font-size: 15px;text-align:center;color:#ffffff;margin-left:120px;background-color: rgb(54, 104, 128);border: none;border-radius: 12px;" onclick="display()">Submit</button>
+        <input type="Reset" value="Reset" style="font-size: 15px;text-align: center;color:#ffffff;margin-left:30px;background-color:rgb(54, 104, 128);border: none;
+        border-radius: 12px;">
+    </fieldset>
+</form>
+</div>
+</body>
