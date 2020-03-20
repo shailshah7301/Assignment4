@@ -5,20 +5,26 @@
  
         function display() {
         if(validate_form()){
-            DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=300,height=200')
+            DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=299,height=199')
+         /*this field is for name*/
             message = "<ul><li><b>Name: </b>" + document.getElementById("a").value;
+            /*this field is for gender*/
             message += "<li><b>Gender: </b>" + displayRadioValue();
             message += "<li><b>Country: </b>" + document.getElementById("b").value;
+            /*this field is for country*/
             message += "<li><b>Email: </b>" + document.getElementById("c").value;
+            /*this field is for mobile no*/
             message += "<li><b>Phone Number: </b>" + document.getElementById("d").value;
             DispWin.document.write(message);
             }
         }
         function validate_form() {
+            /*to validate phone no*/
             var phoneno = /^\d{10}$/;
 
             if(!(document.getElementById("d").value.match(phoneno))){
                 alert("Incorrect mobile no.");
+               /*if not valid then alert */
                 return false;
             }
 
@@ -29,9 +35,11 @@
 
             if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(document.getElementById("c").value)) {
                 alert("Email address is invalid!")
+              /*if email is not valid*/
                 return false
             }
             alert("Your response is Submitted sucessfully");
+           /*if every input field satisfy the condition mentioned*/
             return true;
         }
         function displayRadioValue() { 
@@ -43,7 +51,7 @@
         } 
       function blurFunction() 
        { 
-    	document.getElementById("a").style.background = "skyblue";
+    	document.getElementById("a").style.background = "cyan";
        }
         
 </script>
@@ -61,20 +69,24 @@
 </style>
 </head>
 <body>
-<div style="margin-top:10%;margin-left:70%;background-color:#dddddd;width:425;height:350">
+<div style="margin-top:10%;margin-left:70%;background-color:#dddddd;width:425;height:349">
     <form  action="" method="post" >
     <fieldset>
     <legend><font style="color:rgb(184, 198, 219);font-size: 30px;">Registration Form</font></legend><br><br>
-       <font style="color:white;margin-left:10px">Name<span style="color:red">*</span> :</font> <input type="text" id="a" name="fname" style="
-       width:200px;height:20px;margin-left:180px;margin-top:-20px" required onblur="blurFunction()" onblur="myFunction()"><br><br>
-       <font style="color:white;margin-left:10px">Gender :</font><font style="color:white;margin-left:110px;margin-top:-20px">Male </font><input type="radio" name="gn" id="myInput2">
+     /*this is for the heading */
+     <font style="color:white;margin-left:10px">Name<span style="color:red">*</span> :</font> <input type="text" id="a" name="fname" style="
+        width:199px;height:19px;margin-left:180px;margin-top:-20px" required onblur="blurFunction()" onblur="myFunction()"><br><br>
+     /*this is for the gender field*/  
+     <font style="color:white;margin-left:10px">Gender :</font><font style="color:white;margin-left:110px;margin-top:-20px">Male </font><input type="radio" name="gn" id="myInput2">
         <font style="color:white;margin-left:10px"> Female </font><input type="radio" name="gn" id="myInput2"> <br><br>
         <font style="color:white;margin-left:10px">Country :</font> <select style="width:200px;height:20px;margin-left:180px;margin-top:-20px" required id="b">
-        <option value="India" >India</option>
+     /*drop down menu for choosing country*/   
+     <option value="India" >India</option>
        
         <option value="AUSTRALIA">Australia</option>
       	 <option value="RUSSIA">Russia</option>
         </select><br><br>
+     /*remaning are the various input types of form tag*/
         <font style="color:white;margin-left:10px">Email<span style="color:red">*</span> :</font> <input type="email" name="email" style="width:200px;
         height:19px;margin-left:179px;margin-top:-20px" id="c"><br><br>
         <font style="color:white;margin-left:10px">Password<span style="color:red">*</span> :</font> <input type="password" pattern="[A-Za-Z1-9]{8}"name="pw" style="width:200px;height:20px;margin-left:180px;margin-top:-20px" required id="pw"><br><br>
