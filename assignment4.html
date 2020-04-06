@@ -6,25 +6,25 @@
         function display() {
         if(validate_form()){
             DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=299,height=199')
-         /*this field is for name*/
+         
             message = "<ul><li><b>Name: </b>" + document.getElementById("a").value;
-            /*this field is for gender*/
+           
             message += "<li><b>Gender: </b>" + displayRadioValue();
             message += "<li><b>Country: </b>" + document.getElementById("b").value;
-            /*this field is for country*/
+         
             message += "<li><b>Email: </b>" + document.getElementById("c").value;
-            /*this field is for mobile no*/
+        
             message += "<li><b>Phone Number: </b>" + document.getElementById("d").value;
             DispWin.document.write(message);
             }
         }
         function validate_form() {
-            /*to validate phone no*/
+          
             var phoneno = /^\d{10}$/;
 
             if(!(document.getElementById("d").value.match(phoneno))){
                 alert("Incorrect mobile no.");
-               /*if not valid then alert */
+            
                 return false;
             }
 
@@ -35,11 +35,11 @@
 
             if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(document.getElementById("c").value)) {
                 alert("Email address is invalid!")
-              /*if email is not valid*/
+            
                 return false
             }
             alert("Your response is Submitted sucessfully");
-           /*if every input field satisfy the condition mentioned*/
+          
             return true;
         }
         function displayRadioValue() { 
